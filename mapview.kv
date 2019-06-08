@@ -1,0 +1,63 @@
+Okno:
+
+<Okno>:
+    orientation: "vertical"
+    search_lat: coor_lat
+    search_long: coor_long
+    my_map: map
+    my_image: image
+    odleglosc2: odleglosc3
+    BoxLayout:
+        orientation: "horizontal"
+        MapView:
+			lat: 0
+			lon: 0
+			zoom: 1
+			id: map
+			on_map_relocated: root.draw_marker()
+        Image:
+            size_hit_x: 50
+            source: 'stolice.jpg'
+            id: image
+    BoxLayout:
+        height: "40dp"
+        size_hint_y: None    
+        Label:
+            size_hint_x: 25
+            text: "Szerokosc"
+        TextInput:
+            size_hint_x: 25
+            id: coor_lat
+        Label:
+            size_hint_x: 25
+            text: "Dlugosc"
+        TextInput:
+            size_hint_x: 25
+            id: coor_long
+        Label:
+            size_hint_x: 25
+            text: "Odleglosc"
+        TextInput:
+            size_hint_x: 25
+            id: odleglosc3
+    BoxLayout:
+        height: "40dp"
+        size_hint_y: None
+        Button:
+            size_hint_x: 25
+            text: "Rozpocznij"
+            on_press: root.Poczatek()
+        Button:
+            size_hint_x: 25
+            text: "Nastepne"
+            on_press: root.check_points()
+        Button:
+            size_hint_x: 25
+            text: "Sprawdz"
+            on_press: root.sprawdzanko()
+        Button:
+            size_hint_x: 25
+            id:btnExit
+            text: "Wyjdz"
+            on_press: app.stop()
+    
